@@ -1,0 +1,56 @@
+{
+    "manifest_version": 3,
+    "name": "Vinted Annonces Manager",
+    "version": "1.0",
+    "description": "Extrait les annonces Vinted via l'API",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "cookies",
+        "sidePanel",
+        "tabs",
+        "unlimitedStorage",
+        "downloads"
+    ],
+    "host_permissions": [
+        "https://www.vinted.fr/*",
+        "https://*.vinted.net/*"
+    ],
+    "action": {
+        "default_title": "Vinted Annonces Manager"
+    },
+    "side_panel": {
+        "default_path": "sidepanel.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.vinted.fr/*"
+            ],
+            "js": [
+                "content.js","contentScript.js"
+            ]
+        }
+    ],
+    "minimum_chrome_version": "114",
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "db.js",
+                "sidepanel.js",
+                "storage-help.html",
+                "jszip.min.js",
+                "styles.css"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+}

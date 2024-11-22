@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinted Annonces Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="nav">
+    <button id="accueil-nav" class="active">Accueil</button>
+    <button id="annonces-publiees-nav">Annonces Publiées</button>
+    <button id="annonces-non-publiees-nav">Annonces Non Publiées</button>
+    <button id="options-nav">Options / Maintenance</button>
+  </div>
+
+  <div id="accueil-page" class="page active">
+    <h2>Accueil</h2>
+    <div id="stats">
+      <h3>Statistiques des annonces</h3>
+      <p>Nombre total d'annonces: <span id="total-annonces"></span></p>
+      <p>Annonces publiées: <span id="publiees-annonces"></span></p>
+      <p>Annonces non publiées: <span id="non-publiees-annonces"></span></p>
+    </div>
+    <div id="dates">
+      <h3>Dates importantes</h3>
+      <p>Dernier update Vinted: <span id="last-vinted-update"></span></p>
+      <p>Dernière sauvegarde: <span id="last-save"></span></p>
+    </div>
+    <button id="extract-button">Extraire les annonces</button>
+    <div id="status"></div>
+  </div>
+
+  <div id="annonces-publiees-page" class="page">
+    <h2>Annonces Publiées</h2>
+    <div id="annonces-publiees-list"></div>
+  </div>
+
+  <div id="annonces-non-publiees-page" class="page">
+    <h2>Annonces Non Publiées</h2>
+    <div id="annonces-non-publiees-list"></div>
+  </div>
+
+  <div id="options-page" class="page">
+    <h2>Options / Maintenance</h2>
+    <div>
+      <label for="user-id">ID Utilisateur:</label>
+      <input type="text" id="user-id">
+      <button id="save-user-id">Sauvegarder</button>
+    </div>
+    <div>
+      <button id="export-button">Exporter la base de données</button>
+      <button id="import-button">Importer la base de données</button>
+    </div>
+    <div id="last-export">Dernière exportation : Jamais</div>
+    <div>
+      <button id="reset-db-button">Réinitialiser la base de données</button>
+    </div>
+  </div>
+
+  <div id="annonce-details-page" class="page">
+    <button id="back-to-list">Retour à la liste</button>
+    <div id="annonce-details-content"></div>
+  </div>
+
+  <script src="jszip.min.js"></script>
+  <script type="module" src="sidepanel.js"></script>
+</body>
+
+</html>
+
